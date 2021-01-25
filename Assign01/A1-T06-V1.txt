@@ -1,0 +1,54 @@
+select t1.department_desc, t1.type_desc, t1.turnover as "99_reg_sls_dlr", t2.turnover as "00_reg_sls_dlr", t3.turnover as "01_reg_sls_dlr", 100*(t2.turnover - t1.turnover) / t1.turnover as "99-00-inc-percent", 100*(t3.turnover - t2.turnover) / t2.turnover as "00-01-inc-percent"
+from (
+    select I.department_desc, O.type_desc, sum(reg_sls_dlr) as turnover
+    from sales S, time T, item I, store O
+    where S.CUR_TRN_DATE = T.CUR_TRN_DATE AND T.YEAR_KEY = 1999 AND S.ITEM_KEY = I.ITEM_KEY AND S.STORE_KEY = O.STORE_KEY
+    group by I.department_desc, O.type_desc
+    ) as t1,
+    (select I.department_desc, O.type_desc, sum(reg_sls_dlr) as turnover
+    from sales S, time T, item I, store O
+    where S.CUR_TRN_DATE = T.CUR_TRN_DATE AND T.YEAR_KEY = 2000 AND S.ITEM_KEY = I.ITEM_KEY AND S.STORE_KEY = O.STORE_KEY
+    group by I.department_desc, O.type_desc) as t2,
+    (select I.department_desc, O.type_desc, sum(reg_sls_dlr) as turnover
+    from sales S, time T, item I, store O
+    where S.CUR_TRN_DATE = T.CUR_TRN_DATE AND T.YEAR_KEY = 2001 AND S.ITEM_KEY = I.ITEM_KEY AND S.STORE_KEY = O.STORE_KEY
+    group by I.department_desc, O.type_desc) as t3
+where t1.department_desc = t2.department_desc and t1.type_desc = t2.type_desc and t1.department_desc = t3.department_desc and t1.type_desc = t3.type_desc;
+
+select manager, class, tot_sls_dlr,
+    row_number() over
+        (partition by manager
+        order by tot_sls_dlr desc) as rank
+from
+    (select manager, class, sum(total) as tot_sls_dlr
+    from
+        (select o.store_key, o.store_desc, o.manager, t.item_key, i.class, t.total
+        from (
+            select store_key, item_key, sum(tot_sls_dlr) as total
+            from sales
+            group by store_key, item_key
+        ) as T, item I, store O
+    where t.item_key = i.item_key and t.store_key = o.store_key)
+group by class, manager)
+order by manager asc, class asc;
+
+SELECT year_key, date_desc, division_desc, sum_pml_sls_dlr, AVG(sum_pml_sls_dlr) OVER (
+    PARTITION BY year_key, division_desc
+    ORDER BY trn_date
+    ROWS 31 PRECEDING
+    ) AS avg_up_to_date
+FROM(
+    SELECT year_key, F.CUR_TRN_DATE as trn_date, date_desc, division_desc, sum(pml_sls_dlr) as sum_pml_sls_dlr
+    FROM sales F, time T, store S, item I
+    WHERE F.cur_trn_date = T.cur_trn_date and F.store_key = S.store_key and F.item_key = I.item_key
+    GROUP BY  year_key, division_desc, F.CUR_TRN_DATE, date_desc);
+
+select month_desc, state_desc, style, sum(reg_sls_qty) as "reg_sls_qty"
+from sales F, time T, store S, item I
+where F.cur_trn_date = T.cur_trn_date and F.store_key = S.store_key and F.item_key = I.item_key and (T.year_key = 2000 or T.year_key = 2001)
+group by rollup(month_desc, state_desc, style);
+
+select date_desc, month_desc, season_desc , quarter_desc , year_desc, store_desc, demog_grp_key, market_desc, region, manager, state_desc, type_desc, item_desc, colors_grp_key, class, department_desc, division_desc, size_desc, style, sum(reg_sls_qty) as "reg_sls_qty"
+from sales F, time T, store S, item I
+where F.cur_trn_date = T.cur_trn_date and F.store_key = S.store_key and F.item_key = I.item_key and (T.year_key = 2000 or T.year_key = 2001)
+group by rollup(date_desc, month_desc, season_desc , quarter_desc , year_desc, store_desc, demog_grp_key, market_desc, region, manager, state_desc, type_desc, item_desc, colors_grp_key, class, department_desc, division_desc, size_desc, style);
