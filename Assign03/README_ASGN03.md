@@ -53,7 +53,7 @@ Precision  Recall   F-Measure
 Random Tree, Time: 0.04
 Precision  Recall   F-Measure
 0.760      0.746    0.753
-
+0.684      0.681    0.682
 
 deoth = 5 
 Precision  Recall   F-Measure
