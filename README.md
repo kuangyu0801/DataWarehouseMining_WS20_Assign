@@ -102,44 +102,49 @@ Extract, transform, load
 		- compare snapshots
 		- Snapshot Differentials
 			- Window Algorithm
+
 ## Extraction
-	- ETL Processing
-	- Extraction
-	- Export and Import
-	- Import vs. Load
-	- Filter and 
-	- Direct Integration
-		- external tables
-		- table functions
-		- federated database
+- ETL Processing
+- Extraction
+- Export and Import
+- Import vs. Load
+- Filter and 
+- Direct Integration
+	- external tables
+	- table functions
+	- federated database
+
 ## Load: from data staging area to data warehouse
-	- Update and Insert
-	- MERGE INTO
-	- Multiple Inserts
-	- Replication
-		- data distributed: source update only ->
-		- update anywhere: <->
-		- data consolidation: update from multiple source ->
+- Update and Insert
+- MERGE INTO
+- Multiple Inserts
+- Replication
+	- data distributed: source update only ->
+	- update anywhere: <->
+	- data consolidation: update from multiple source ->
 
 ## Transformation: convert data into useful and valuable
 - Semantics: identify proper semantics
 - Structure: schema integration
 - Data: data integration and data cleansing
-### Data Integration
-	- Normalization, Surrogate key, data type conversion, coding, convert strings, convert date format
-### Data Cleansing
-	- Elementizing, Standardizing, Verification, Householding, Documenting
-	- Dimensions of Data Cleansing
+
+## Data Integration
+- Normalization, Surrogate key, data type conversion, coding, convert strings, convert date format
+
+## Data Cleansing
+- Elementizing, Standardizing, Verification, Householding, Documenting
+- Dimensions of Data Cleansing
+
 
 |                 | Single<br>Source                                 | Multiple<br>Source                                                |
 |-----------------|--------------------------------------------------|-------------------------------------------------------------------|
 | Single Record   | missing/illegal values<br>attribute dependencies | primary key,foreign key<br>duplicates/matching<br>standardization |
 | Multiple Record | primary key,foreign key<br>duplicates/matching   | primary key,foreign key<br>duplicates/matching                    |
 
-### Data Quality
-	- consistency, correctness, completeness, exactness, reliability, understandability, relevance
+## Data Quality
+- consistency, correctness, completeness, exactness, reliability, understandability, relevance
 
-# Tools
-	- ETL Market
-	- ETL Tools
-	- Gartner Magic Quadrant for Data Integration Tools
+## Tools
+- ETL Market
+- ETL Tools
+- Gartner Magic Quadrant for Data Integration Tools
