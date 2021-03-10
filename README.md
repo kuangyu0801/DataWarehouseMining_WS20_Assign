@@ -10,19 +10,19 @@
 Task 1.3, 2.3 and 3.3 (15 to 30 minutes per team).
 
 # Review
-## 05 Physical Data Warehouse Design
+# 05 Physical Data Warehouse Design
 - Overview
 ### PhysicalDesignandDatabaseSupport
 - Physical Design
 - Levels of Database Support
 
-### Partitioning
+## Partitioning
 - Partitioning Methods
 	- Horizontal vs. Vertical partitioning
 	- Range partitioning
 	- Hash partitioning
 
-### Materialized Summary Data
+## Materialized Summary Data
 - Advantages
 - Challenges
 Extract, transform, load
