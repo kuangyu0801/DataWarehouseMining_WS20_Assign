@@ -57,19 +57,27 @@ Extract, transform, load
 	- Dynamic Approaches
 	- Refreshing Summary Data
 
-### Indexes
+|   complete  |           |           |     x    |
+|:-----------:|:---------:|:---------:|:--------:|
+| incremental |     x     |     x     |          |
+|             | immediate | on-commit | deferred |
+
+## Indexes
 - Scan
-	- Table scan
-	- Index scan
+	- Table scan: retrieve, extract all rows and apply predicate each 
+	- Index scan: using index to identify
 - Indexes
-- Indexes on Dimension Tables
-- Indexes on Fact Tables
+	- Indexes on Dimension Tables
+	- Indexes on Fact Tables
 - Bitmap Indexes
-- Sample Bitmaps
-- Bitmap Usage
-- Sample Query
+	- Sample Bitmaps
+	- Bitmap Usage
+	- Sample Query
 - Combining One-dimensional Indexes
-- Multidimensional Indexes
+	- MDB-Tree
+	- UB-Tree
+- Multidimensional Indexes: Symmetric treatment of all dimensions
+	- Quadtree, Octtree, K-D-B-Tree
 
 
 # L06: Phases of Data Warehousing
