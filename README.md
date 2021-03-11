@@ -8,8 +8,40 @@
 
 
 Task 1.3, 2.3 and 3.3 (15 to 30 minutes per team).
+# Sample Exam
+```
+# Task 4.1
 
+SELECT manager, class, SUM(tot_sls_dlr)
+FROM sales F, item I, store O
+WHERE F.item_key = i.item_key AND F.store_key = o.store_key
+GROUP BY (class, manager)
+
+# Task 4.2
+
+SELECT manager, class, style, region, SUM(tot_sls_dlr)
+FROM sales F, item I, store O, time T
+WHERE F.item_key = i.item_key AND F.store_key = o.store_key AND F.cur_trn_date = T.cur_trn_date AND T.year_key = 2001
+GROUP BY (class, manager, style, region)
+
+# Task 4.3
+SELECT manager, class, year_key, SUM(tot_sls_dlr)
+FROM sales F, item I, store O, time T
+WHERE F.item_key = i.item_key AND F.store_key = o.store_key AND F.cur_trn_date = T.cur_trn_date
+GROUP BY CUBE(class, manager, year_key)
+
+# Task 4.4
+SELECT store_desc, class, SUM(tot_sls_qty), RANK() OVER(PARTITION BY store_desc ORDER BY SUM(tot_sls_qty) desc) AS rank 
+FROM sales F, item I, store O, time T
+WHERE F.item_key = i.item_key AND F.store_key = o.store_key AND F.cur_trn_date = T.cur_trn_date AND T.year_key = 2015
+GROUP BY class, store_desc
+
+```
 # Review
+
+# L02 Data Warehouse Architecture
+# L04 Logical Data Warehouse Design
+- Reminder Process
 # 05 Physical Data Warehouse Design
 - Overview
 ### PhysicalDesignandDatabaseSupport
@@ -148,3 +180,50 @@ Extract, transform, load
 - ETL Market
 - ETL Tools
 - Gartner Magic Quadrant for Data Integration Tools
+
+
+# L07-OLAP
+
+# OnLine Analytic Processing (OLAP)
+select facts, select dimensions, define filters, define presentation
+- Data Warehouse Design
+- Typical OLAP Operations
+	- Slice
+	- Dice
+	- Roll-up: by climbing up hierarchy or by dimension reduction
+	- Drill-down
+	- Pivot/Rotate
+	- Drill through
+- FASMI Test
+ 
+## Storage of OLAPcubes
+- Relational vs. Multidimensional
+- Sequence of typical star queries
+- Multidimensional Database Systems
+- Multidimensional Arrays
+- Multidimensional Partitioning
+	- Automatic partitioning
+	- dimension semantics
+	- User-defined partitioning
+- Sparse Cubes
+- N-dimensionalarrayisefficientfor dense cubes
+- Two storage levels
+	- first level: index structure for sparse dimensions
+	- second level: index structures like B-trees
+- Multidimensional Query Language
+
+
+
+## Architecture
+- MOLAP: data resides in multidimensional DBMS
+	+ Pros: short response, efficient structure
+	+ Cons: limited performance, large volume, preprocessing
+- ROLAP: data resides in a relational DBMS, OLAP server provides SQL queries
+	+ Pros: mature relational technology, no volumn limit
+	+ Cons: increased response time
+- HOLAP
+	+ Pros: short response for aggregated data
+	+ Cons: increased response time for detail data
+
+## SQL-Support for OLAP
+
