@@ -55,8 +55,16 @@ GROUP BY class, store_desc
 # L02 Data Warehouse Architecture
 
 # L04 Logical Data Warehouse Design
+- Logical Design
+- Logical Schema
+- Extended Dimension Table Design
+- Extended Fact Table Design
+
+## Logical Design
 - Reminder Process
 - Conceptual Schema: Overview
+
+## Logical Schema Types
 - Logical Schema Types
 	+ Star Schema
 	+ Snow flakeSchema
@@ -81,7 +89,7 @@ attribute that holds the old description
 + Time Stamping in Large Dimensions
 + Large Dimensions with Frequent Changes
 	+ Modeling approach: Break off dimension into several dimension tables
-		+ Attributes are forced to discrete values
+	+ Attributes are forced to discrete values
 + Many-to-Many Dimensions
 
 ## Extended Fact Table Design
