@@ -53,6 +53,51 @@ GROUP BY class, store_desc
 + Introduction to Services
 
 # L02 Data Warehouse Architecture
+- Data Warehouse Architecture
+- Basic Elements
+	- Source Systems
+	- Data Staging Area
+	- Core Data Warehouse • Data Marts
+	- Metadata
+- Further Concepts
+	- Types of Architecture
+	- Operational Data Store
+
+
+## Basic Elements
+- Source Systems
+- Classification of Data Sources
+- Data Quality
+- Monitoring
+- Data Staging Area: is a storage area
+	+ temporarily stored in the data staging area before it is loaded into the data warehouse
+- Extraction
+- Transformation
+	+ denormalization, normalization, data type conversion, cleansing (missing, wrong, and inconsistent values)
+- Load
+- Core Data Warehouse: Integrated data as basis for all kinds of analytic purposes: single point of truth
+- Data Marts
+	- dependent data marts
+		+ ETL process for DW only
+		+ First build central data warehouse (DW)
+		+ Consistentanalysison DW and DM
+	- independent data marts
+		+ ETLprocessforeachDM and the central DW
+		+ Inconsistent analysis is possible
+- End User Data Access
+	+ Operations: OLAP, Query, Reporting, Data-Mining
+- Data Warehouse Manager
+- Metadata in Data Warehousing
+
+## Further Concepts
+- Architecture
+	+ Basic Elements of the Data Warehouse according to Kimball et. al.
+	+ Various Types of Architecture
+		+ Central architecture
+		+ Federal architecture
+		+ Tiered architecture
+	+ Operational Data Store (ODS)
+		+ Classes of Operational Data Stores
 
 # L04 Logical Data Warehouse Design
 - Logical Design
