@@ -39,11 +39,61 @@ GROUP BY class, store_desc
 ```
 # Review
 
+# L01 Introduction
+
+- Motivation and basics
+- Heterogeneous Data Sources
+- Data Warehouse: The Basic Idea
+- Information Pyramid
+- Operational vs. Analytical Systems
+- Defining Data Warehouse
+	+ Ad atawarehouse is a subject oriented, integrated, non-volatile, andtimevariant collection of data in support of management's decisions.
+	+ Data Warehousing
+		+ Process of integrating data from several source systems, storing it in the data warehouse database, and using this integrated data source.
++ Introduction to Services
+
 # L02 Data Warehouse Architecture
+
 # L04 Logical Data Warehouse Design
 - Reminder Process
+- Conceptual Schema: Overview
+- Logical Schema Types
+	+ Star Schema
+	+ Snow flakeSchema
+	+ Informix Schema
++ Comparing Logical Schema Types
+	+ General Comparison
+	+ Facts, dimensions and hierarchies
+	+ Schema Modifications
+
+## Extended Dimension Table Design
++ Production Keys vs. Surrogate Keys
+	+ Production key: Attributes that make up a primary key in the production system
+	+ Surrogate key: Single attribute(often INTEGER)that is used as primary key in the data warehouse
++ Roles of Dimensions
++ Hierarchies
+	+ Bridge Table for Hierarchies
++ Slowly Changing Dimensions
+	+ Type One: Substitution of the old description by the new one
+	+ Type Two: Product together with its new description gets a new ID
+	+ Type Three: Associated product entry has an additional
+attribute that holds the old description
++ Time Stamping in Large Dimensions
++ Large Dimensions with Frequent Changes
+	+ Modeling approach: Break off dimension into several dimension tables
+		+ Attributes are forced to discrete values
++ Many-to-Many Dimensions
+
+## Extended Fact Table Design
+- Various Units of Measure
+- Modeling Events and Coverage
+- Factless Fact Tables
+- Multinational Currency Tracking
+
 # 05 Physical Data Warehouse Design
 - Overview
+
+
 ### PhysicalDesignandDatabaseSupport
 - Physical Design
 - Levels of Database Support
