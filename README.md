@@ -99,6 +99,57 @@ GROUP BY class, store_desc
 	+ Operational Data Store (ODS)
 		+ Classes of Operational Data Stores
 
+# L03 Conceptual Data Warehouse Design
+Overview
+- Data Warehouse Design Process
+- Multidimensional Model
+- Dimensional Fact Model
+- UML Profile for Multidimensional Modeling
+
+## Data Warehouse Design Process
+- Conceptual Design: Transformation of the semi-formal business requirements specification into a formalized conceptual multidimensional schema
+- Logical Design: Convert the conceptual schema to a logical one with respect to the target data model
+- Physical Design: Physical implementation of the logical schemata with respect to the individual properties of the target database system
+
+## Multidimensional Model
+- Multidimensional Model
+- Data Cube
+- Basic Elements of a Conceptual Model
+	- Fact data
+	- Attributes
+	- Qualities
+	- Dimensions
+- Conformed Dimensions
+
+## Dimensional Fact Model (DFM)
+- Basic Definitions
+- Facts
+- Measures: definedbya numeric or Boolean expression
+- Dimensions: discrete attributes which determine the minimum granularity adopted to represent facts
+- Attributes: a discrete domain of values
+- non-dimension attributes: additional information about a dimension attribute
+- Hierarchies: Subtrees rooted in dimensions are hierarchies
+- Aggregation
+- starER
+	- starER vs.DFM 
+		- allows many-to-many relationships
+		- non-dimension object to participates
+
+## UML Profile for Multidimensional Modeling
+- UML Profile
+- Three Levels of Detail
+	+ Level 1 Model definition
+	+ Level 2 Star schema definition
+	+ Level 3 Dimension Definition fact definition
+- Running Example
+- Level 1: Model Definition
+- Level 2: Auto-Sales Schema
+- Level 2: Services Schema
+- Dimension Hierarchies
+	- Strict hierarchy: 只有一個rollup dimension
+	- Non-strict hierarchy: 有多於一個rollup dimension
+	- Completeness for drill-down: imcomplete可能沒有drill down
+	- Completeness for roll-up: 沒有rollup
 # L04 Logical Data Warehouse Design
 - Logical Design
 - Logical Schema
