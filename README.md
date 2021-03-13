@@ -150,6 +150,14 @@ Overview
 	- Non-strict hierarchy: 有多於一個rollup dimension
 	- Completeness for drill-down: imcomplete可能沒有drill down
 	- Completeness for roll-up: 沒有rollup
+	- Categorization Hierarchies
+- Level 3: Auto-Sales Fact
+	- Summarizability
+	- Many-to-many-Relationships
+	- Degenerate Fact
+	- Degenerate Dimension
+- Important Features of a Conceptual Model
+
 # L04 Logical Data Warehouse Design
 - Logical Design
 - Logical Schema
@@ -380,4 +388,30 @@ select facts, select dimensions, define filters, define presentation
 	+ Cons: increased response time for detail data
 
 ## SQL-Support for OLAP
+
+# L09 Advanced Topics
+- Unstructured data
+- DataLake
+- ModelManagement
+
+## Unstructured data
+- How Structured is Your Data?
+- Importance of Unstructured Data
+- Architecture: No Integration
+- Architecture: Physical Integration Only
+- Architecture: Full Integration
+- Example: DeepDWH Approach
+	- Sample Application
+	- Architecture
+	- Linking Model
+
+## Data Lake
+- central storage, any type of data of any size any data rate using any import method
+- The Basic Idea
+- Big Data Technologies for Data Lakes	
+- Data Warehouse vs. Data Lake
+	- High flexibility of datalakes
+	- schema-on-read
+# Model Management
+- Model Management Platform
 
